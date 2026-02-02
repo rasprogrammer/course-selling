@@ -71,7 +71,12 @@ export const loginController = async (req: Request, res: Response, next: NextFun
             throw new Error("JWT_SECRET environment variable is not set");
         }
 
-        const token = jwt.sign({userId: existingUser.id}, process.env.JWT_SECRET, {
+        const token = jwt.sign(
+        {
+            userId: existingUser.id,
+            role: existingUser.role
+        }, 
+        process.env.JWT_SECRET, {
             expiresIn: "1h"
         });
 

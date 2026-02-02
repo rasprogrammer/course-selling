@@ -1,8 +1,11 @@
 import type { Request, Response, NextFunction } from "express";
 import * as jwt from "jsonwebtoken";
+import type { RoleType } from "../configTypes";
+
 
 interface UserPayload {
     userId: string;
+    role: RoleType;
 }
 
 export interface CustomRequest extends Request {
